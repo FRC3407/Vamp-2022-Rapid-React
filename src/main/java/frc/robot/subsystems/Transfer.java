@@ -8,10 +8,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Transfer extends SubsystemBase {
-  private final double transfer_speed = 1.0;
-  PWMVictorSPX transfer_motor = new PWMVictorSPX(2);
+  private final double transfer_speed = Constants.kTransferSpeed;
+  PWMVictorSPX transfer_motor = new PWMVictorSPX(Constants.IDVictor.kTransfer);
 
   /** Creates a new Transfer. */
   public Transfer() 

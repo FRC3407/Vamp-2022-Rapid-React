@@ -6,12 +6,13 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
-  WPI_TalonSRX leftf = new WPI_TalonSRX(0);
-  WPI_TalonSRX leftb = new WPI_TalonSRX(1);
-  WPI_TalonSRX rightf = new WPI_TalonSRX(3);
-  WPI_TalonSRX rightb = new WPI_TalonSRX(2);
+  WPI_TalonSRX leftf = new WPI_TalonSRX(Constants.IDTalon.kLeftFront);
+  WPI_TalonSRX leftb = new WPI_TalonSRX(Constants.IDTalon.kLeftBack);
+  WPI_TalonSRX rightb = new WPI_TalonSRX(Constants.IDTalon.kRightBack);
+  WPI_TalonSRX rightf = new WPI_TalonSRX(Constants.IDTalon.kRightFront);
   MotorControllerGroup left_motors = new MotorControllerGroup(leftf, leftb);
   MotorControllerGroup right_motors = new MotorControllerGroup(rightf, rightb);
   DifferentialDrive diffDrive = new DifferentialDrive(left_motors, right_motors);
