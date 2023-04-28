@@ -9,9 +9,11 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ShootCommand;
+import frc.robot.commands.TransferCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Transfer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -30,6 +32,7 @@ public class RobotContainer {
   private final DriveTrain m_DriveTrain = new DriveTrain();
   private final Shooter m_Shooter = new Shooter();
   private final Intake m_Intake = new Intake();
+  private final Transfer m_Transfer = new Transfer();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController = new CommandXboxController(
@@ -62,6 +65,7 @@ public class RobotContainer {
   private void configureBindings() {
     m_driverController.rightBumper().whileTrue(new ShootCommand(m_Shooter));
     m_driverController.leftBumper().whileTrue(new IntakeCommand(m_Intake));
+    m_driverController.a().whileTrue(new TransferCommand(m_Transfer));
   }
 
   /**
