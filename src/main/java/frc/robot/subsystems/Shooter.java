@@ -24,6 +24,10 @@ public class Shooter extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
+  /**
+   * Sets the shooter speed.
+   * @param speed The speed the shooter is run at.
+   */
   public void setShooter(double speed)
   {
     shooter_motor.set(speed);

@@ -9,7 +9,9 @@ import frc.robot.subsystems.Transfer;
 
 public class TransferCommand extends CommandBase {
   private final Transfer m_transfer;
-  /** Creates a new TransferCommand. */
+  /** Creates a new TransferCommand. 
+   * @param m_transfer The subsystem used by this command.
+  */
   public TransferCommand(Transfer m_transfer) {
     this.m_transfer = m_transfer;
     addRequirements(m_transfer);

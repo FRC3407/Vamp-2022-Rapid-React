@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import java.lang.annotation.Documented;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
@@ -25,11 +27,17 @@ public class Transfer extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
+  /**
+   * Runs the transfer at kTransferSpeed.
+   */
   public void runTransfer()
   {
     transfer_motor.set(transfer_speed);
   }
 
+  /**
+   * Sets the transfer speed to 0.0.
+   */
   public void stopTransfer()
   {
     transfer_motor.set(0.0);

@@ -6,9 +6,10 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Intake extends SubsystemBase {
-  PWMVictorSPX intake_motor = new PWMVictorSPX(5);
+  PWMVictorSPX intake_motor = new PWMVictorSPX(Constants.IDVictor.kIntake);
 
   /** Creates a new Intake. */
   public Intake() {}
@@ -17,6 +18,10 @@ public class Intake extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+  /**
+   * Sets the intake speed.
+   * @param speed The speed the intake is run at.
+   */
   public void setIntake(double speed) {
     intake_motor.set(speed);
   }

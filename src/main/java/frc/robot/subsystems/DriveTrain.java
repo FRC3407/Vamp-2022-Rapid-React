@@ -33,7 +33,7 @@ public class DriveTrain extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
-
+  
   public void arcadeDrive(double speed, double rotation)
   {
       diffDrive.arcadeDrive(speed, rotation);
