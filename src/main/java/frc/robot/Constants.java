@@ -13,19 +13,23 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  //The speed at which the transfer motor runs
   public static double kTransferSpeed = 1.0;
+
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+  //Ids for all talon motor controllers
   public static class IDTalon {
     public static final int kLeftFront = 0;
     public static final int kLeftBack = 1;
     public static final int kRightBack = 2;
     public static final int kRightFront = 3;
   }
-
+  //Ids for all victor motor controllers
   public static class IDVictor {
     public static final int kShooter = 0;
     public static final int kTransfer = 2;
+    public static final int kIntake = 5;
   }
 }

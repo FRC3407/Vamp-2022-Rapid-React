@@ -10,9 +10,11 @@ import frc.robot.subsystems.Shooter;
 public class ShootCommand extends CommandBase {
   private final Shooter m_shooter;
 
-  /** Creates a new ShooterCommand. */
-  public ShootCommand(Shooter shooter) {
-    this.m_shooter = shooter;
+  /** Creates a new ShooterCommand. 
+   * @param m_shooter The subsystem used by this command.
+  */
+  public ShootCommand(Shooter m_shooter) {
+    this.m_shooter = m_shooter;
     addRequirements(m_shooter);
 
   }

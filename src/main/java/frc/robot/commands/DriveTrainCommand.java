@@ -19,16 +19,17 @@ public class DriveTrainCommand extends CommandBase {
   DoubleSupplier m_rotationSupplier;
 
   /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
+   * Creates a new DriveTrainCommand.
+   * @param m_speedSupplier The speed used by this command.
+   * @param m_rotationSupplier The rotation used by this command.
+   * @param m_subsystem The subsystem used by this command.
    */
-  public DriveTrainCommand(DoubleSupplier speedSupplier, DoubleSupplier rotationSupplier, DriveTrain subsystem) {
-    this.m_speedSupplier = speedSupplier;
-    this.m_rotationSupplier = rotationSupplier;
-    m_drivetrain = subsystem;
+  public DriveTrainCommand(DoubleSupplier m_speedSupplier, DoubleSupplier m_rotationSupplier, DriveTrain m_subsystem) {
+    this.m_speedSupplier = m_speedSupplier;
+    this.m_rotationSupplier = m_rotationSupplier;
+    m_drivetrain = m_subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(m_subsystem);
   }
 
   // Called when the command is initially scheduled.
