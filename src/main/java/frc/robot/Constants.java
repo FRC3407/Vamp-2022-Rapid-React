@@ -29,7 +29,7 @@ public final class Constants {
   //Ids for all victor motor controllers
   public static class IDVictor {
     public static final int kShooter = 0;
-    public static final int kTransfer = 2;
-    public static final int kIntake = 5;
+    public static final int kTransfer = 1;
+    public static final int kIntake = 2;
   }
 }
