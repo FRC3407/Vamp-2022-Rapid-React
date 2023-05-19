@@ -12,11 +12,10 @@ import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
   PWMVictorSPX shooter_motor = new PWMVictorSPX(Constants.IDVictor.kShooter);
-
   /** Creates a new Shooter. */
   public Shooter() 
   {
-
+    shooter_motor.setInverted(true);
   }
 
   @Override

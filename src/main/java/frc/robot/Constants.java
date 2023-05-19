@@ -15,7 +15,12 @@ package frc.robot;
 public final class Constants {
   //The speed at which the transfer motor runs
   public static double kTransferSpeed = 1.0;
-
+  //The speed at which the intake motor runs
+  public static double kIntakeSpeed = 0.7;
+  //The speed at which the shooter motor runs
+  public static double kShooterSpeed = 2.0;
+  //The delay before transfer 
+  public static double kTransferDelay = 0.5;
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }

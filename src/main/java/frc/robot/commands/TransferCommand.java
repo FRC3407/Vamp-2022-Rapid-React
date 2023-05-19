@@ -4,11 +4,16 @@
 
 package frc.robot.commands;
 
+import java.io.Console;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.Transfer;
 
 public class TransferCommand extends CommandBase {
   private final Transfer m_transfer;
+  private Timer timer = new Timer();
   /** Creates a new TransferCommand. 
    * @param m_transfer The subsystem used by this command.
   */
@@ -22,14 +27,16 @@ public class TransferCommand extends CommandBase {
   @Override
   public void initialize() 
   {
-    m_transfer.runTransfer();
-
+    timer.reset();
+    timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if(timer.hasElapsed(Constants.kTransferDelay)){
     m_transfer.runTransfer();
+    }
   }
 
   // Called once the command ends or is interrupted.
