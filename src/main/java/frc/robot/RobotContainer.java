@@ -37,7 +37,7 @@ public class RobotContainer {
   private final Transfer m_Transfer = new Transfer();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController = new CommandXboxController(
+  public final static CommandXboxController m_controller = new CommandXboxController(
       OperatorConstants.kDriverControllerPort);
 
   /**
@@ -46,7 +46,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     m_DriveTrain.setDefaultCommand(
-        new DriveTrainCommand(m_driverController::getLeftY, m_driverController::getLeftX, m_DriveTrain));
+        new DriveTrainCommand(m_controller::getLeftY, m_controller::getLeftX, m_DriveTrain));
     configureBindings();
   }
 
@@ -66,8 +66,8 @@ public class RobotContainer {
    */
   private void configureBindings() {
     //ParallelCommandGroup rightBumper = new ParallelCommandGroup(new ShootCommand(m_Shooter),new TransferCommand(m_Transfer));
-    m_driverController.rightBumper().whileTrue(new ShootCommand(m_Shooter).alongWith(new TransferCommand(m_Transfer)));
-    m_driverController.leftBumper().whileTrue(new IntakeCommand(m_Intake));
+    m_controller.rightBumper().whileTrue(new ShootCommand(m_Shooter).alongWith(new TransferCommand(m_Transfer)));
+    m_controller.leftBumper().whileTrue(new IntakeCommand(m_Intake));
     //m_driverController.a().whileTrue(new TransferCommand(m_Transfer));
   }
 
