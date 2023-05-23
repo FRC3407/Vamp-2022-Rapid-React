@@ -40,7 +40,7 @@ public class DriveTrainCommand extends CommandBase {
   @Override
   public void execute() 
   {
-    m_drivetrain.arcadeDrive(m_speedSupplier.getAsDouble(), m_rotationSupplier.getAsDouble());
+    m_drivetrain.arcadeDrive(m_speedSupplier.getAsDouble()/2, m_rotationSupplier.getAsDouble()/2);
 
   }
 
