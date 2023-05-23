@@ -14,12 +14,14 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transfer;
+import edu.wpi.first.hal.simulation.DIODataJNI;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * This class is where the bulk of the robot should be declared. Since
  * Command-based is a
@@ -44,10 +46,12 @@ public class RobotContainer {
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+    SmartDashboard.putData("Shooter", m_Shooter);
     // Configure the trigger bindings
     m_DriveTrain.setDefaultCommand(
         new DriveTrainCommand(m_controller::getLeftY, m_controller::getLeftX, m_DriveTrain));
     configureBindings();
+
   }
 
   /**
@@ -66,7 +70,7 @@ public class RobotContainer {
    */
   private void configureBindings() {
     //ParallelCommandGroup rightBumper = new ParallelCommandGroup(new ShootCommand(m_Shooter),new TransferCommand(m_Transfer));
-    m_controller.rightBumper().whileTrue(new ShootCommand(m_Shooter).alongWith(new TransferCommand(m_Transfer)));
+    m_controller.rightBumper().whileTrue(new ShootCommand(m_Shooter, m_controller::getRightTriggerAxis).alongWith(new TransferCommand(m_Transfer)));
     m_controller.leftBumper().whileTrue(new IntakeCommand(m_Intake));
     //m_driverController.a().whileTrue(new TransferCommand(m_Transfer));
   }

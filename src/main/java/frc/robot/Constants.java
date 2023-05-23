@@ -14,13 +14,19 @@ package frc.robot;
  */
 public final class Constants {
   //The speed at which the transfer motor runs
-  public static double kTransferSpeed = 1.0;
+  public static double kTransferSpeed = 0.1; //1.0
   //The speed at which the intake motor runs
   public static double kIntakeSpeed = 0.7;
-  //The speed at which the shooter motor runs
-  public static double kShooterSpeed = 1.0;
+  //The speed at which the shooter motor will attempt to run in units/sec
+  public static double kShooterSpeed = 1;
   //The delay before transfer 
   public static double kTransferDelay = 0.5;
+
+  //Ids for inputs through the RIO's DIO
+  public static class DIOID {
+    public static final int kShooterSensor = 0;
+  }
+
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
