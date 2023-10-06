@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.CalvinCommand;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ShootCommand;
@@ -68,6 +69,7 @@ public class RobotContainer {
     //ParallelCommandGroup rightBumper = new ParallelCommandGroup(new ShootCommand(m_Shooter),new TransferCommand(m_Transfer));
     m_driverController.rightBumper().whileTrue(new ShootCommand(m_Shooter).alongWith(new TransferCommand(m_Transfer)));
     m_driverController.leftBumper().whileTrue(new IntakeCommand(m_Intake));
+    m_driverController.x().onTrue(new CalvinCommand("oh my god help the robot is eating me"));
     //m_driverController.a().whileTrue(new TransferCommand(m_Transfer));
   }
 
