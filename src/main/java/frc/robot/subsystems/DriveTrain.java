@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -34,8 +35,12 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
   
-  public void arcadeDrive(double speed, double rotation)
-  {
-      diffDrive.arcadeDrive(speed, rotation);
+  // public void arcadeDrive(double speed, double rotation)
+  // {
+  //     diffDrive.arcadeDrive(speed, rotation);
+  // }
+
+  public void tankDrive(double leftspeed, double rightspeed){
+    diffDrive.tankDrive(leftspeed, rightspeed);
   }
 }

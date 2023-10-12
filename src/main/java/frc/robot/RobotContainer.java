@@ -11,6 +11,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Transfer;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -33,6 +34,9 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController = new CommandXboxController(
       OperatorConstants.kDriverControllerPort);
+  
+  private final CommandJoystick m_driverControllerL = new CommandJoystick(0);
+  private final CommandJoystick m_driverControllerR = new CommandJoystick(1);
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -40,7 +44,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     m_DriveTrain.setDefaultCommand(
-        new DriveTrainCommand(m_driverController::getLeftY, m_driverController::getLeftX, m_DriveTrain));
+        new DriveTrainCommand(m_driverControllerL::getX, m_driverControllerR::getX, m_DriveTrain ));
     configureBindings();
   }
 
