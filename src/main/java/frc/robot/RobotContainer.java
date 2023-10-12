@@ -6,6 +6,7 @@ import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ShootCommand;
 import frc.robot.commands.TransferCommand;
+import frc.robot.commands.TransferandShootCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
@@ -62,6 +63,7 @@ public class RobotContainer {
     m_driverController.rightBumper().whileTrue(new ShootCommand(m_Shooter));
     m_driverController.leftBumper().whileTrue(new IntakeCommand(m_Intake));
     m_driverController.a().whileTrue(new TransferCommand(m_Transfer));
+    m_driverController.b().whileTrue(new TransferandShootCommand(m_Shooter, m_Transfer));
   }
 
   /**

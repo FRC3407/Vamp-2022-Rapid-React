@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -13,14 +14,20 @@ public class DriveTrain extends SubsystemBase {
   WPI_TalonSRX leftb = new WPI_TalonSRX(Constants.IDTalon.kLeftBack);
   WPI_TalonSRX rightb = new WPI_TalonSRX(Constants.IDTalon.kRightBack);
   WPI_TalonSRX rightf = new WPI_TalonSRX(Constants.IDTalon.kRightFront);
+ 
   MotorControllerGroup left_motors = new MotorControllerGroup(leftf, leftb);
   MotorControllerGroup right_motors = new MotorControllerGroup(rightf, rightb);
+ 
   DifferentialDrive diffDrive = new DifferentialDrive(left_motors, right_motors);
 
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() 
   {
     left_motors.setInverted(true);
+    // FeedbackDevice.CTRE_MagEncoder_Relative
+    this.rightf.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+    this.leftf.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+    
   }
 
 
