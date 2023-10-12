@@ -44,7 +44,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     m_DriveTrain.setDefaultCommand(
-        new DriveTrainCommand(m_driverControllerL::getX, m_driverControllerR::getX, m_DriveTrain ));
+        new DriveTrainCommand(m_driverControllerL::getY, m_driverControllerR::getY, m_DriveTrain ));
     configureBindings();
   }
 
