@@ -16,7 +16,7 @@ public final class Constants {
   public static double kShooterSpeedSlow;
 
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+    public static final int kDriverControllerPort = 2;
   }
   //Ids for all talon motor controllers
   public static class IDTalon {
